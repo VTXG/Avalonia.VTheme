@@ -1,0 +1,11 @@
+.vs/
+.vscode/
+
+Avalonia.VTheme.Tests/
+
+*/bin/
+*/dbg/
+*/obj/
+
+*.old
+*.user

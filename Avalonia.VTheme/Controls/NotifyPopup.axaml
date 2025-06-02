@@ -1,0 +1,79 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:vt="using:Avalonia.VTheme.Controls">
+	<ControlTheme x:Key="{x:Type vt:NotifyPopup}" TargetType="vt:NotifyPopup">
+		<Setter Property="Foreground" Value="{DynamicResource VT-TextBrush}"/>
+		<Setter Property="Background" Value="{DynamicResource VT-BackgroundLightBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource VT-HighlightBrush}"/>
+		<Setter Property="FontFamily" Value="{DynamicResource VT-DefaultFont}"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Name="PART_Root"
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="1"
+						CornerRadius="5"
+						Width="350"
+						Margin="15"
+						IsVisible="False">
+					<Panel>
+						<TextBlock Name="PART_MessageType"
+								   Foreground="{DynamicResource VT-SelectBrush}"
+								   FontSize="30"
+								   Margin="10,0,0,2"
+								   HorizontalAlignment="Left"
+								   VerticalAlignment="Center"/>
+						<TextBlock Name="PART_MessageText"
+								   Foreground="{TemplateBinding Foreground}"
+								   TextWrapping="Wrap"
+								   Margin="35,5,5,5"
+								   VerticalAlignment="Center"/>
+						<ProgressBar Name="PART_Time"
+									 Height="1"
+									 Value="100"
+									 Width="340"
+									 VerticalAlignment="Bottom"/>
+					</Panel>
+					<Border.Effect>
+						<DropShadowEffect OffsetX="5"
+										  OffsetY="5"
+										  BlurRadius="20"
+										  Color="Black"
+										  Opacity="0.6"/>
+					</Border.Effect>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+
+		<Style Selector="^:popupshow /template/ Border#PART_Root">
+			<Setter Property="IsVisible" Value="True"/>
+			<Style.Animations>
+				<Animation Easing="ExponentialEaseOut"
+						   FillMode="Forward"
+						   Duration="0:0:1">
+					<KeyFrame Cue="0%">
+						<Setter Property="TranslateTransform.X" Value="400"/>
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="TranslateTransform.X" Value="0"/>
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+		<Style Selector="^:popuphide /template/ Border#PART_Root">
+			<Setter Property="IsVisible" Value="True"/>
+			<Style.Animations>
+				<Animation Easing="ExponentialEaseOut"
+						   FillMode="Forward"
+						   Duration="0:0:1">
+					<KeyFrame Cue="0%">
+						<Setter Property="TranslateTransform.X" Value="0"/>
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="TranslateTransform.X" Value="400"/>
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

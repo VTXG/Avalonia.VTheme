@@ -1,0 +1,17 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<SolidColorBrush x:Key="VT-BackgroundBrush" Color="#1A1A1C"/>
+	<SolidColorBrush x:Key="VT-BackgroundLightBrush" Color="#242426"/>
+
+	<SolidColorBrush x:Key="VT-HighlightBrush" Color="#404040"/>
+	<SolidColorBrush x:Key="VT-HighlightLightBrush" Color="#808080"/>
+	<SolidColorBrush x:Key="VT-HighlightDarkBrush" Color="#303030"/>
+
+	<SolidColorBrush x:Key="VT-SelectSolidBrush" Color="#4956C1"/>
+	<LinearGradientBrush x:Key="VT-SelectBrush" StartPoint="0%,0%" EndPoint="100%,100%">
+		<GradientStop Color="#4956C1" Offset="0.0"/>
+		<GradientStop Color="#AE67DE" Offset="1.0"/>
+	</LinearGradientBrush>	
+	
+	<SolidColorBrush x:Key="VT-TextBrush" Color="#F0F0F0"/>
+</ResourceDictionary>

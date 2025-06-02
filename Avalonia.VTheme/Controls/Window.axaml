@@ -1,0 +1,40 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:vt="using:Avalonia.VTheme.Controls">
+	<ControlTheme x:Key="{x:Type Window}" TargetType="Window">
+		<Setter Property="Foreground" Value="{DynamicResource VT-TextBrush}"/>
+		<Setter Property="Background" Value="{DynamicResource VT-BackgroundBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource VT-HighlightDarkBrush}"/>
+		<Setter Property="BorderThickness" Value="0,1,0,0"/>
+		<Setter Property="FontSize" Value="13"/>
+		<Setter Property="FontFamily" Value="{DynamicResource VT-DefaultFont}"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Panel>
+					<Border Name="PART_TransparencyFallback"
+							IsHitTestVisible="False"/>
+					<Border Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							IsHitTestVisible="False"/>
+					<Panel Background="Transparent"
+						   Margin="{TemplateBinding WindowDecorationMargin}"/>
+					<VisualLayerManager>
+						<VisualLayerManager.ChromeOverlayLayer>
+							<TitleBar/>
+						</VisualLayerManager.ChromeOverlayLayer>
+						<ContentPresenter Name="PART_ContentPresenter"
+										  ContentTemplate="{TemplateBinding ContentTemplate}"
+										  Content="{TemplateBinding Content}"
+										  Margin="{TemplateBinding Padding}"
+										  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+										  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+					</VisualLayerManager>
+					<vt:NotifyPopup Name="PART_NotifyPopup"
+									HorizontalAlignment="Right"
+									VerticalAlignment="Bottom"/>
+				</Panel>
+			</ControlTemplate>
+		</Setter>
+	</ControlTheme>
+</ResourceDictionary>

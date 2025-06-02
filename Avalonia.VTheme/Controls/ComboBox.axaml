@@ -1,0 +1,109 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
+		<Setter Property="Foreground" Value="{DynamicResource VT-TextBrush}"/>
+		<Setter Property="Background" Value="{DynamicResource VT-BackgroundBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource VT-HighlightBrush}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="CornerRadius" Value="5"/>
+		<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Padding" Value="5"/>
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="PlaceholderForeground" Value="{DynamicResource ThemeForegroundBrush}"/>
+		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Name="PART_Border"
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						CornerRadius="{TemplateBinding CornerRadius}">
+					<Grid ColumnDefinitions="*,Auto">
+						<TextBlock Name="PART_PlaceholderTextBlock"
+								   Grid.Column="0"
+								   Margin="{TemplateBinding Padding}"
+								   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								   Foreground="{TemplateBinding PlaceholderForeground}"
+								   IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}"
+								   Text="{TemplateBinding PlaceholderText}"/>
+						<ContentControl Margin="{TemplateBinding Padding}"
+										HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+										VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+										Content="{TemplateBinding SelectionBoxItem}"
+										ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}">
+						</ContentControl>
+						<Path Grid.Column="1"
+							  Width="14"
+							  Height="4"
+							  HorizontalAlignment="Center"
+							  VerticalAlignment="Center"
+							  Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z"
+							  Fill="{DynamicResource VT-TextBrush}"
+							  Stretch="Uniform"/>
+						<Popup Name="PART_Popup"
+							   MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+							   MaxHeight="{TemplateBinding MaxDropDownHeight}"
+							   IsLightDismissEnabled="True"
+							   IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+							   PlacementTarget="{TemplateBinding}"
+							   InheritsTransform="True">
+							<Border Background="{DynamicResource VT-BackgroundBrush}"
+									BorderBrush="{DynamicResource VT-HighlightBrush}"
+									BorderThickness="1,0,1,1"
+									CornerRadius="0,0,5,5"
+									Padding="5">
+								<ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+											  VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+											  IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}">
+									<ItemsPresenter Name="PART_ItemsPresenter"
+													ItemsPanel="{TemplateBinding ItemsPanel}"/>
+								</ScrollViewer>
+							</Border>
+						</Popup>
+					</Grid>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+		
+		<Style Selector="^:pointerover /template/ Border#PART_Border">
+			<Setter Property="BorderBrush" Value="{DynamicResource VT-HighlightLightBrush}"/>
+		</Style>
+		<Style Selector="^:dropdownopen /template/ Border#PART_Border">
+			<Setter Property="Background" Value="{DynamicResource VT-SelectBrush}"/>
+			<Setter Property="CornerRadius" Value="5,5,0,0"/>
+		</Style>
+		<Style Selector="^:disabled /template/ Border#PART_Border">
+			<Setter Property="Opacity" Value="0.5"/>
+		</Style>
+	</ControlTheme>
+
+	<ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="Padding" Value="2"/>
+		<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<ContentPresenter Name="PART_ContentPresenter"
+								  Padding="{TemplateBinding Padding}"
+								  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+								  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+								  Background="{TemplateBinding Background}"
+								  BorderBrush="{TemplateBinding BorderBrush}"
+								  BorderThickness="{TemplateBinding BorderThickness}"
+								  Content="{TemplateBinding Content}"
+								  ContentTemplate="{TemplateBinding ContentTemplate}"
+								  CornerRadius="{TemplateBinding CornerRadius}"/>
+			</ControlTemplate>
+		</Setter>
+		
+		<Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource VT-HighlightDarkBrush}"/>
+		</Style>
+		<Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Background" Value="{DynamicResource VT-HighlightBrush}"/>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

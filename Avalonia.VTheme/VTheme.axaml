@@ -1,0 +1,30 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		x:Class="Avalonia.VTheme.VTheme">
+	<Styles.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="/Accents/Colors.axaml"/>
+				<ResourceInclude Source="/Accents/Resources.axaml"/>
+
+				<!-- Controls -->
+				<ResourceInclude Source="/Controls/Button.axaml"/>
+				<ResourceInclude Source="/Controls/CheckBox.axaml"/>
+				<ResourceInclude Source="/Controls/ComboBox.axaml"/>
+				<ResourceInclude Source="/Controls/ContextMenu.axaml"/>
+				<ResourceInclude Source="/Controls/Menu.axaml"/>
+				<ResourceInclude Source="/Controls/MenuFlyoutPresenter.axaml"/>
+				<ResourceInclude Source="/Controls/MenuItem.axaml"/>
+				<ResourceInclude Source="/Controls/NotifyPopup.axaml"/>
+				<ResourceInclude Source="/Controls/PopupRoot.axaml"/>
+				<ResourceInclude Source="/Controls/ProgressBar.axaml"/>
+				<ResourceInclude Source="/Controls/ScrollBar.axaml"/>
+				<ResourceInclude Source="/Controls/ScrollViewer.axaml"/>
+				<ResourceInclude Source="/Controls/SelectableTextBlock.axaml"/>
+				<ResourceInclude Source="/Controls/TextBox.axaml"/>
+				<ResourceInclude Source="/Controls/Window.axaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Styles.Resources>
+	<SimpleTheme/>
+</Styles>
