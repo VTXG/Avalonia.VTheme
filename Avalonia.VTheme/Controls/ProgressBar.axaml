@@ -12,7 +12,8 @@
 					<Border Background="{TemplateBinding Background}"
 							BorderBrush="{TemplateBinding BorderBrush}"
 							BorderThickness="{TemplateBinding BorderThickness}"
-							CornerRadius="{TemplateBinding CornerRadius}">
+							CornerRadius="{TemplateBinding CornerRadius}"
+							ClipToBounds="True">
 						<Panel>
 							<Border Name="PART_Indicator"
 									Background="{TemplateBinding Foreground}"
@@ -95,6 +96,14 @@
 				</Animation>
 			</Style.Animations>
 			<Setter Property="Height" Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}"/>
+		</Style>
+		<Style Selector="^.Smooth">
+			<Setter Property="Transitions">
+				<Transitions>
+					<DoubleTransition Property="Value" Duration="0:0:0.3"
+									  Easing="CubicEaseInOut"/>
+				</Transitions>
+			</Setter>
 		</Style>
 	</ControlTheme>
 </ResourceDictionary>
