@@ -13,9 +13,8 @@
 				  IsEnabled="{Binding $parent[TextBox].CanPaste}" InputGesture="{x:Static TextBox.PasteGesture}"/>
 	</MenuFlyout>
 
-	<ControlTheme x:Key="SimpleTextBoxClearButtonTheme"
-				  BasedOn="{StaticResource {x:Type Button}}"
-				  TargetType="Button">
+	<ControlTheme x:Key="SimpleTextBoxClearButtonTheme" TargetType="Button"
+				  BasedOn="{StaticResource {x:Type Button}}">
 		<Setter Property="Cursor" Value="Arrow"/>
 		<Setter Property="Template">
 			<Setter.Value>
@@ -37,9 +36,8 @@
 		</Setter>
 	</ControlTheme>
 
-	<ControlTheme x:Key="SimplePasswordBoxRevealButtonTheme"
-				  BasedOn="{StaticResource {x:Type Button}}"
-				  TargetType="ToggleButton">
+	<ControlTheme x:Key="SimplePasswordBoxRevealButtonTheme" TargetType="ToggleButton"
+				  BasedOn="{StaticResource {x:Type Button}}">
 		<Setter Property="Cursor" Value="Arrow"/>
 		<Setter Property="Template">
 			<Setter.Value>
@@ -123,13 +121,13 @@
 												  Grid.ColumnSpan="1"
 												  Content="{TemplateBinding InnerLeftContent}"/>
 								<ScrollViewer Name="PART_ScrollViewer"
-											  Grid.Column="1"
-											  Grid.ColumnSpan="1"
+											  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+											  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
 											  AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
 											  BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-											  HorizontalScrollBarVisibility="Hidden"
 											  IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-											  VerticalScrollBarVisibility="Hidden">
+											  Grid.Column="1"
+											  Grid.ColumnSpan="1">
 									<Panel>
 										<TextBlock Name="PART_Watermark"
 												   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
